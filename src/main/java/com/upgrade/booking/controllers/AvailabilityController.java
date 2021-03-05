@@ -28,7 +28,7 @@ public class AvailabilityController {
 	/*
 	 * This api used to check the availability
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/Availbility")
+	@RequestMapping(method = RequestMethod.GET, value = "/Availability")
 	public List<AvailablityDTO> create(@RequestParam(value = "CheckInDate", required = false) String checkInDate,
 			@RequestParam(value = "CheckOutDate", required = false) String checkOutDate) {
 
