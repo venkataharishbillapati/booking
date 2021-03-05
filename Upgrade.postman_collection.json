@@ -11,14 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1234/V1/Availbility?CheckInDate=2021-03-03&CheckOutDate=2021-05-09",
+					"raw": "localhost:1234/V1/Availability?CheckInDate=2021-03-03&CheckOutDate=2021-05-09",
 					"host": [
 						"localhost"
 					],
 					"port": "1234",
 					"path": [
 						"V1",
-						"Availbility"
+						"Availability"
 					],
 					"query": [
 						{
