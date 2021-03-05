@@ -1,11 +1,19 @@
+**Tables Description:**
+As The users will need to find out when the campsite availability, I created a table ([Booking].[Availability]) to fetch available dates and the number of available visitor slots.  
+[Booking].[VisitorBookingData] table will provide information regarding the visitor's demographic data and booking information.
 
-I created a table called Availability, where based on the date, we can insert the number of visitors allowed per day.
-Using that information, I validated the input of consumer who tries to book and I update the BookedNumberOfVisitors column with number of people booked.
-I developed this project using Microsoft SQL Server.
+**Working:**
+1. When a user searches for the campsite availability, please call **/V1/Availability** GET endpoint, the number of available slots will be returned back based on each date.
+2. For making a reservation, please call **/V1/Reserve** POST endpoint, which will validate the available slots by fetching data from the table([Booking].[Availability]). And if slots are available, it will confirm the reservation and save it in table([Booking].[VisitorBookingData]) and update the [BookedNumberOfVisitors] in ([Booking].[Availability]) table. 
+3. Once the reservation is confirmed, I return a unique Confirmation Code for future use.
+4. By using confirmation code, we can update the user demographic data (Full name or email) using **V1/Reserve/{{ConfirmationCode}}** PATCH endpoint.
+5. For cancellation, please pass the confirmation code using **V1/Reserve/{{ConfirmationCode}}/Cancel** PATCH endpoint.
+6. To check the status of the confirmed reservation, please use **V1/Reserve/{{ConfirmationCode}}** GET endpoint.
 
-I used port number 1234 for the project, if it needs to be changed, please update it in application.yml in the classpath of the project.
-
-I am attaching the postman collection into the project which will be helpful for testing.
+**NOTE:** 
+1. This project uses Microsoft SQL Server.
+2. localhost port number available at 1234, if it needs to be changed, please update it in application.yml in the classpath of the project.
+3. I am attaching the postman collection in the project for easy testing.
 
 
 Please create a database with name Upgrade and run the below sqls for creating tables:
@@ -53,7 +61,7 @@ CREATE TABLE [Booking].[Availability] (
 =========================================================
 
 
-Insert statements in Availability table for testing.
+**Insert statements in Availability table for testing.**
 
 
 USE [Upgrade]
