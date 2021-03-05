@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: booking
+server:
+  tomcat:
+    access-log-enabled: true
+    access-log-pattern: '%h %l %u %t "%r" %s %b %D'
+  contextPath: /
+  port: 1234
+logging:
+  path: log/
+  file: ${logging.path}/dataenrich.log
+jdbc:
+  url: jdbc:sqlserver://${DB_URL};databaseName=Upgrade;
+  username: sa_local
+  password: Test123
+  driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+hibernate:
+  default_schema: Booking
+  dialect: org.hibernate.dialect.SQLServerDialect 
+entitymanager:
+  packages:
+    to:
+      scan: com.upgrade.booking.entities

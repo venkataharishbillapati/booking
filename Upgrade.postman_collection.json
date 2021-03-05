@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "aaa1f405-f24a-4bd5-9e5a-d6cb1bcbffa2",
+		"name": "Upgrade",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retrieve Availbility",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1234/V1/Availbility?CheckInDate=2021-03-03&CheckOutDate=2021-05-09",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"V1",
+						"Availbility"
+					],
+					"query": [
+						{
+							"key": "CheckInDate",
+							"value": "2021-03-03"
+						},
+						{
+							"key": "CheckOutDate",
+							"value": "2021-05-09"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Reservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"CheckInDate\":\"2021-03-04\",\r\n\"CheckOutDate\":\"2021-03-07\",\r\n\"Email\":\"harishbillapati@gmail.com\",\r\n\"FullName\":\"Harish Billapati\",\r\n\"NumberOfVisitors\":8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1234/V1/Reserve",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"V1",
+						"Reserve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Reservation Copy",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"FullName\":\"Harish Bill\",\r\n\"Email\":\"venkata@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1234/V1/Reserve/QYCZBQMBAYWTHRY",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"V1",
+						"Reserve",
+						"QYCZBQMBAYWTHRY"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Reservation by ConfirmationCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1234/V1/Reserve/WSHKSCH9ARCYBBY",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"V1",
+						"Reserve",
+						"WSHKSCH9ARCYBBY"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Reservation by ConfirmationCode",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:1234/V1/Reserve/LEBFYW4N62Q7MQ5/Cancel",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"V1",
+						"Reserve",
+						"LEBFYW4N62Q7MQ5",
+						"Cancel"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
